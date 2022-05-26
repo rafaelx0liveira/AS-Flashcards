@@ -1,5 +1,6 @@
 package com.pucsp.flashcards.models;
 
+import com.pucsp.flashcards.business.Deck;
 import lombok.Data;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;

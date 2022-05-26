@@ -1,13 +1,16 @@
-package com.pucsp.flashcards.models;
+package com.pucsp.flashcards.business;
 
+import com.pucsp.flashcards.models.Flashcard;
+import com.pucsp.flashcards.models.Proficiency;
 import com.pucsp.flashcards.repositories.IFlashcardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
-public class Deck {
+public class Deck implements IDeck {
 
     @Autowired
     private IFlashcardRepository flashcardRepository;
@@ -27,12 +30,22 @@ public class Deck {
         return null;
     }
 
-    public void share(User user) {
+    public void share(Integer userId) {
 
     }
 
-    public void move(Flashcard flashcard, boolean canAdd) {
+    @Override
+    public Flashcard addFlashcard(Flashcard flashcard) {
+        return null;
+    }
 
+    @Override
+    public Long deleteFlashcard(UUID uuid) {
+        return null;
+    }
+
+    public Flashcard randomizeFlashcard() {
+        return null;
     }
 
     public String showFront() {
