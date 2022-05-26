@@ -22,27 +22,27 @@ public class Flashcard {
     @Type(type = "UUID")
     private UUID id;
 
-    @Column(name = "userid")
+    @Column(name = "userid", columnDefinition = "int(16)")
     private int userId;
 
-    @Column(name = "title")
+    @Column(name = "title", columnDefinition = "varchar(256)")
     private String title;
 
-    @Column(name = "description")
+    @Column(name = "description", columnDefinition = "tinytext")
     private String description;
 
-    @Column(name = "front")
+    @Column(name = "front", columnDefinition = "text")
     private String front;
 
-    @Column(name = "back")
+    @Column(name = "back", columnDefinition = "text")
     private String back;
 
-    @Column(name = "lastview")
+    @Column(name = "lastview", columnDefinition = "timestamp")
     private LocalDateTime lastView;
 
     @Column(name = "proficiency")
     private Proficiency proficiency;
 
-    @Column(name = "hits")
+    @Column(name = "hits", columnDefinition = "int")
     private int hits;
 }

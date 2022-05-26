@@ -1,11 +1,11 @@
 package com.pucsp.flashcards.controllers;
 
 import com.pucsp.flashcards.models.User;
+import com.pucsp.flashcards.repositories.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import com.pucsp.flashcards.repositories.IUserRepository;
 
 import java.util.List;
 
