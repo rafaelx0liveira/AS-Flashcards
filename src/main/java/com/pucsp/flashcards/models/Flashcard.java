@@ -7,7 +7,6 @@ import org.hibernate.annotations.TypeDefs;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 @Data
 @Entity
@@ -18,9 +17,8 @@ import java.util.UUID;
 public class Flashcard {
 
     @Id
-    @GeneratedValue
-    @Type(type = "UUID")
-    private UUID id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private String id;
 
     @Column(name = "userid", columnDefinition = "int(16)")
     private int userId;

@@ -72,13 +72,19 @@ nbdist/
 nbactions.xml
 nb-configuration.xml
 
-##############################
-## Visual Studio Code
-##############################
+bin/
+build/
+.gradle
+.gradletasknamecache
+gradle-app.setting
+!gradle-wrapper.jar
+
+out/
+.idea/
+.idea_modules/
+*.iml
+*.ipr
+*.iws
+
 .vscode/
 .code-workspace
-
-##############################
-## OS X
-##############################
-.DS_Store
