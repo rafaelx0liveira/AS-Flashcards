@@ -8,7 +8,7 @@ public interface IDeck {
 
     Flashcard addFlashcard(Flashcard flashcard);
 
-    Long deleteFlashcard(UUID uuid);
+    Long deleteFlashcard(String id);
 
     Flashcard randomizeFlashcard();
 

@@ -5,18 +5,17 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
-import java.util.UUID;
 
-public interface IFlashcardRepository extends JpaRepository<Flashcard, UUID> {
+public interface IFlashcardRepository extends JpaRepository<Flashcard, String> {
     @Query(value = "SELECT " +
             "* " +
             "FROM " +
             "flashcards " +
             "WHERE " +
             "(hits < 3 AND lastView >= (CURDATE() - INTERVAL 1 DAY))" +
-            "AND" +
+            "OR" +
             "(hits >= 3 AND hits<=5 AND lastView >= (CURDATE() - INTERVAL 3 DAY))" +
-            "AND" +
+            "OR" +
             "(hits > 5 AND lastView >= (CURDATE() - INTERVAL 7 DAY))" +
             "AND userid=?#{[0]}",
             nativeQuery = true)
