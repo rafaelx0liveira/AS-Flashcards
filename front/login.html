@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Login">
+  <title>Login | Flashcard</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="./css/style.css" as="style">
+
+  <link rel="stylesheet" href="./css/style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <script> document.documentElement.classList.add('js');</script>
+</head>
+
+<body id="login">
+  <header class="header-bg">
+    <div class="header container">
+      <a href="./">
+        <img src="./img/icones/FlashCard.svg" width="136" height="32" alt="FlashCard">
+      </a>
+
+      <nav aria-label="primaria">
+        <ul class="header-menu font-1-m cor-0">
+          <li><a href="./login.html">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="titulo-bg">
+      <div class="titulo container">
+        <h1 class="font-1-xxl cor-0 fadeInLeft" data-anime="400">Login<span class="cor-p1">.</span></h1>
+      </div>
+    </div>
+
+      <section class="login-formulario fadeInRight" data-anime="400" aria-label="Formulário">
+        <form class="form" action="./login.html">
+
+          <div class="col-2">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="email@email.com">
+          </div>
+
+          <div class="col-2">
+            <label for="pass">Senha</label>
+            <input type="password" id="pass" name="password">
+          </div>
+          
+          <button class="botao col-2">Login</button>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <footer class="footer-bg">
+    <div class="footer container">
+      <img src="./img/icones/FlashCard.svg" width="136" height="32" alt="Bikcraft">
+      <div class="footer-contato">
+        <h3 class="font-2-l-b cor-0">Contato</h3>
+        <ul class="font-2-m cor-5">
+          <li>Rua Marquês de Paranaguá, 42 - Paulista</li>
+          <li>São Paulo - SP</li>
+        </ul>
+        <div class="footer-redes">
+          <a href="./">
+            <img src="./img/redes/instagram.svg" width="32" height="32" alt="Instagram">
+          </a>
+          <a href="./">
+            <img src="./img/redes/facebook.svg" width="32" height="32" alt="Facebook">
+          </a>
+          <a href="./">
+            <img src="./img/redes/youtube.svg" width="32" height="32" alt="Youtube">
+          </a>
+        </div>
+      </div>
+      <div class="footer-informacoes">
+        <h3 class="font-2-l-b cor-0">Informações</h3>
+        <nav>
+          <ul class="font-1-m cor-5">
+            <li><a href="">Flashcards</a></li>
+            <li><a href="">Sobre</a></li>
+            <li><a href="">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="footer-copy font-2-m cor-6">Flashcards © Alguns direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="./js/plugins/simple-anime.js"></script>
+  <script src="./js/script.js"></script>
+</body>
+
+</html>

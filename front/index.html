@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Os Flashcards são perfeitos para estudar e relembrar verbos, regras gramaticais, vocabulário, datas históricas, citações, fórmulas, leis e muito mais.">
+  <title>FlashCards</title>
+
+  <!-- Definindo que o css deve ser a primeira coisa a ser carregada-->
+  <link rel="preload" href="./css/style.css" as="style">
+  
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./css/style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&family=Poppins:wght@400;600&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <script> document.documentElement.classList.add('js');</script>
+</head>
+
+<body>
+  <header class="header-bg">
+    <div class="header container">
+      <a href="./">
+        <img src="./img/icones/FlashCard.svg" width="136" height="32" alt="FlashCard">
+      </a>
+
+      <nav aria-label="primaria">
+        <ul class="header-menu font-1-m cor-0">
+          <li><a href="./login.html">Login</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="introducao-bg">
+    <div class="introducao container">
+      <div class="introducao-conteudo">
+        <h1 class="font-1-xxl cor-0" data-anime="200">FlashCards<span class="cor-p1 fadeInLeft">.</span></h1>
+        <p class="font-2-l cor-5 fadeInLeft" data-anime="400">Os Flashcards são perfeitos para estudar e relembrar verbos, regras gramaticais, vocabulário, datas históricas, citações, fórmulas, leis e muito mais.</p>
+        <a class="botao fadeInLeft" data-anime="600" href="./login.html">Comece a estudar</a>
+      </div>
+
+      <picture data-anime="800" class="fadeInLeft">
+        <source media="(max-width: 800px)" srcset="./img/fotos/flashcard-introducao.jpg">
+
+        <img src="./img/fotos/flashcard-introducao.jpg" width="1280" height="1600" alt="FlashCards introducao">
+      </picture>
+    </div>
+  </main>
+
+  <article class="flashcard-lista">
+    <h2 class="font-1-xxl container">escolha seu modo de estudo<span class="cor-p1">.</span></h2>
+
+    <ul>
+      <li>
+        <a href="">
+          <h3 class="font-1-xl">Você entra com o raciocínio e nós entramos com o resto.</h3>
+        </a>
+      </li>
+
+      <li>
+        <a href="">
+          <h3 class="font-1-xl">Seu próximo sucesso está logo à frente.</h3>
+        </a>
+      </li>
+
+      <li>
+        <a href="">
+          <h3 class="font-1-xl">Não se frustre. Faça o que for preciso.</h3>
+        </a>
+      </li>
+    </ul>
+  </article>
+
+  <article class="tecnologia-bg">
+
+    <div class="tecnologia container">
+      <div class="tecnologia-imagem">
+        <img src="./img/fotos/estudos-aliado.jpg" width="1200" height="1920" alt="">
+      </div>
+
+      <div class="tecnologia-conteudo">
+        <span class="font-2-l-b cor-5">FlashCard como aliado</span>
+        <h2 class="font-1-xxl cor-0">Fixando o conteúdo na memória<span class="cor-p1">.</span></h2>
+
+        <p class="font-2-l cor-5">Chega um ponto em qualquer fase de aprendizagem em que é preciso absorver a informação de uma vez por todas. Se você, como a maioria de nós, não tem uma memória fotográfica, você vai precisar de uma. É aí que os Flashcards entram para lhe ajudar. Os Flashcards potencializam a fixação do conteúdo na memória, facilitando a revisão do conteúdo.</p>
+        <a class="link" href="./login.html">Estude agora</a>
+        <div class="tecnologia-vantagens">
+          <div>
+            <h3 class="font-1-m cor-0">Poder da Aprendizagem Visual</h3>
+            <p class="font-2-s cor-5">Embora a aprendizagem visual seja ótima para a compreensão, combinar recursos visuais com texto é mais eficaz. É por isso que Flashcards são ótimos auxiliares da memória. Estudantes bem sucedidos estão se beneficiando dos Flashcards online. Você pode criar Flashcards online e acessá-los de qualquer lugar.
+          </div>
+
+          <div>
+            <h3 class="font-1-m cor-0">Conhecimento compartilhado</h3>
+            <p class="font-2-s cor-5">Você pode embaralhar, pular cartas e avaliar para acompanhar seu progresso nos estudos. Você pode testar a si mesmo constantemente. Torne seu material ainda mais interessante adicionando imagens aos seus Flashcards. Professores adoram usar os Flashcards em sala de aula para envolver os alunos. Você também pode compartilhá-los com amigos.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <footer class="footer-bg">
+    <div class="footer container">
+      <img src="./img/icones/FlashCard.svg" width="136" height="32" alt="Bikcraft">
+      <div class="footer-contato">
+        <h3 class="font-2-l-b cor-0">Contato</h3>
+        <ul class="font-2-m cor-5">
+          <li>Rua Marquês de Paranaguá, 42 - Paulista</li>
+          <li>São Paulo - SP</li>
+        </ul>
+        <div class="footer-redes">
+          <a href="./">
+            <img src="./img/redes/instagram.svg" width="32" height="32" alt="Instagram">
+          </a>
+          <a href="./">
+            <img src="./img/redes/facebook.svg" width="32" height="32" alt="Facebook">
+          </a>
+          <a href="./">
+            <img src="./img/redes/youtube.svg" width="32" height="32" alt="Youtube">
+          </a>
+        </div>
+      </div>
+      <div class="footer-informacoes">
+        <h3 class="font-2-l-b cor-0">Informações</h3>
+        <nav>
+          <ul class="font-1-m cor-5">
+            <li><a href="">Flashcards</a></li>
+            <li><a href="">Sobre</a></li>
+            <li><a href="">Contato</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="footer-copy font-2-m cor-6">Flashcards © Alguns direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="./js/plugins/simple-anime.js"></script>
+  <script src="./js/script.js"></script>
+</body>
+
+</html>

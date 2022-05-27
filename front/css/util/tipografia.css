@@ -1,0 +1,119 @@
+/****************************
+          TIPOGRAFIA
+****************************/
+/****************************
+          VARIÁVEIS
+
+:root
+-------
+Sumário
+-------
+A pseudo-classe CSS :root se equipara à raíz de uma árvore, que por sua vez representa o documento. Aplicado ao HTML, :root representa o elemento <html>  e é identico ao seletor html, exceto que sua especificidade é mais alta.
+
+Exemplo
+Usar :root pode ser útil para declarar uma variável CSS global:
+
+:root {
+  --main-color: hotpink;
+  --pane-padding: 5px 42px;
+}
+****************************/
+
+:root {
+  /************/
+  /* Primary */
+  /************/
+
+  /*************/
+  /* Body Copy */
+  /*************/
+  --font-size: ;
+
+  /*********/
+  /* Font */
+  /*********/
+  --font-poppins:     'Poppins', sans-serif;
+  --font-roboto:      'Roboto', sans-serif;
+  --font-merriweather: 'Merriweather', serif;
+}
+
+.font-1-xs {
+  font: 400 0.75rem/1.35 var(--font-poppins);
+}
+
+.font-2-xs {
+  font: 400 0.875rem/1.43 var(--font-roboto);
+}
+
+.font-1-s {
+  font: 400 1rem/1.5 var(--font-poppins);
+}
+
+.font-2-s {
+  font: 400 1rem/1.5 var(--font-roboto);
+}
+
+.font-1-m,
+.font-1-m-b {
+  font: 400 1.125rem/1.35 var(--font-poppins);
+}
+
+.font-1-m-b {
+  font-weight: 600;
+}
+
+.font-2-m {
+  font: 500 1.125rem/1.35 var(--font-roboto);
+}
+
+.font-1-l {
+  font: 400 1.5rem/1.5 var(--font-poppins);
+}
+
+.font-2-l,
+.font-2-l-b {
+  font: 400 1.5rem/1.5 var(--font-roboto);
+}
+
+.font-2-l-b {
+  font-weight: 500;
+  letter-spacing: 0.015em;
+  text-transform: uppercase;
+}
+
+.font-1-xl {
+  font: 600 2rem/1.25 var(--font-poppins);
+}
+
+.font-2-xl {
+  font: 500 2rem/1.25 var(--font-roboto);
+}
+
+.font-1-xxl{
+  /* font-size: 4rem;  64 são 4 vezes 16, portanto 4rem
+  line-height: 1.125;
+  font-family: var(--font-poppins);
+  font-weight: 600; */
+
+  font: 600 4rem/1.125 var(--font-poppins); /* Maneira curta de escrever o código acima*/
+}
+
+@media (max-width: 1200px) {
+  .font-1-xxl {
+    font-size: 3rem;
+  }
+  .font-2-l,
+  .font-2-l-b {
+    font-size: 1.125rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .font-1-xxl {
+    font-size: 2rem;
+  }
+  .font-1-xl,
+  .font-2-xl {
+    font-size: 1.5rem;
+  }
+}

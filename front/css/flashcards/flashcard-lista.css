@@ -1,0 +1,91 @@
+/************************************
+          Flashcard-LISTA
+************************************/
+
+.flashcard-lista{
+  padding-top: 60px;
+  padding-bottom: 120px;
+}
+
+.flashcard-lista h2{
+  margin-bottom: 100px;
+}
+
+.flashcard-lista ul{
+  display: flex;
+  gap: 40px;
+  padding: 0 20px 20px 20px;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+
+  /*A propriedade overflow especifica quando o conteúdo de um elemento de nível de bloco deve ser cortado, exibido com barras de rolagem ou se transborda do elemento.
+
+  O uso da propriedade overflow com valor diferente de visible (seu valor padrão), criará um novo contexto de formatação de bloco. Isto é tecnicamente necessário para evitar que um conteúdo flutuante que entre em contato com o objeto dentro da área de rolamento e quebre as linhas do conteúdo para ajustar a disposição do texto. A quebra das linhas ocorre sempre que a barra de rolagem é utilizada, tornando a experiência de rolagem lenta.
+
+  ********
+  Valores:
+  ********
+  -> visible:
+    Valor padrão. O conteúdo não é cortado e pode ser renderizado para fora da caixa de conteúdo.
+  -> hidden:
+    O conteúdo é cortado e nenhuma barra de rolagem é exibida.
+  -> scroll:
+    O conteúdo é acessível através de barras de rolagem que são exibidas mesmo que o conteúdo não precise. Isso evita o problema de barras de rolagem aparecendo e desaparecendo quando o conteúdo é dinâmico. Impressoras podem imprimir o conteúdo vazado.
+  -> auto:
+    Depende do navegador utilizado. Navegadores desktop como o Firefox geralmente exibem barras de rolagem apenas quando necessário.*/
+  overflow-x: auto;
+}
+
+#bicicleta .flashcard-lista ul{
+  padding: 0px 0px 20px 0px ;
+}
+
+.flashcard-lista li{
+  min-width: 280px;
+}
+
+.flashcard-lista a{
+  /* Por padrão a tag a é inline*/
+  display: block;
+}
+
+.flashcard-lista img{
+  margin-bottom: 16px;
+  border-radius: 4px;
+}
+
+.flashcard-lista h3{
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.flashcard-lista h3::before{
+  content: '';
+  display: inline-block;
+  height: 8px;
+  width: 12px;
+  margin-right: 8px;
+  background-color: var(--cor-p1);
+  transition: width 0.3s;
+}
+
+.flashcard-lista a:hover h3::before{
+  width: 24px;
+}
+
+.flashcard-lista li span{
+  padding-left: 20px;
+}
+
+@media (max-width: 800px){
+  .flashcard-lista{
+    padding-bottom: 60px;
+  }
+
+  .flashcard-lista ul{
+    gap: 20px;
+  }
+  
+}

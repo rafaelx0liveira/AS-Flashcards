@@ -1,0 +1,35 @@
+/****************************
+          STYLE CSS
+****************************/
+
+/****************************
+          IMPORTS
+****************************/
+
+/************** GLOBAL **************/
+@import "./global/global.css";
+@import "./global/cabeçalho.css";
+@import "./global/rodape.css";
+
+/************** HOME **************/
+@import "./home/introducao.css";
+@import "./home/tecnologia.css";
+@import "./home/parceiros.css";
+@import "./home/depoimento.css";
+
+/************** UTILIDADES **************/
+@import "./util/componentes.css";
+@import "./util/tipografia.css";
+@import "./util/cores.css";
+@import "./util/formulario.css";
+@import "./util/animacao.css";
+
+/************** BICICLETAS **************/
+@import "./flashcards/flashcard-lista.css";
+
+/************** LOGIN **************/
+@import "./login/login.css";
+
+
+
+
