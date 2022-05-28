@@ -1,57 +1,66 @@
-package com.pucsp.flashcards.business;
+package com.pucsp.flashcards.services;
 
 import com.pucsp.flashcards.models.Flashcard;
 import com.pucsp.flashcards.models.Proficiency;
 import com.pucsp.flashcards.repositories.IFlashcardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.Random;
 
-public class Deck implements IDeck {
+@Service
+public class FlashcardService implements IFlashcardService {
 
     @Autowired
-    IFlashcardRepository flashcardRepository;
+    private final IFlashcardRepository repository;
 
     private Flashcard current;
 
     private List<Flashcard> flashcardList = new ArrayList<>();
 
-    public Deck() {
-        //flashcardList = flashcardRepository.findAllDaily(userId);
+    public FlashcardService(IFlashcardRepository flashcardRepository) {
+        this.repository = flashcardRepository;
     }
 
+    // CRUD METHODS -------------------------------------------------------
+
+    public Optional<Flashcard> getFlashcard(String id, Integer userId) {
+        return repository.findFlashcardByIdAndUserId(id, userId);
+    }
+
+
+    public Flashcard getDailyFlashcards() {
+        return null;
+    }
+
+    public Flashcard createFlashcard() {
+        return null;
+    }
+
+    public Flashcard updateFlashcard() {
+        return null;
+    }
+
+    public Flashcard deleteFlashcard() {
+        return null;
+    }
+
+    // BUSINESS METHODS ---------------------------------------------------
     public Flashcard pick() {
         Random r = new Random();
         return flashcardList.get(r.nextInt(0, flashcardList.size()));
     }
 
-    public void share(Integer userId) {
-
+    private void flushFlashCard() {
+        repository.save(this.current);
     }
 
-    @Override
-    public Flashcard addFlashcard(Flashcard flashcard) {
-        return null;
-    }
-
-    @Override
-    public Long deleteFlashcard(String id) {
-        return null;
-    }
-
-    public Flashcard randomizeFlashcard() {
-        return null;
-    }
-
-    public String showFront() {
-        return current.getFront();
-    }
-
-    public String showBack() {
-        return current.getBack();
+    private void updateLastView() {
+        this.current.setLastView(LocalDateTime.now());
     }
 
     public void validateAnswer(boolean isCorrect) {
@@ -65,18 +74,6 @@ public class Deck implements IDeck {
         flushFlashCard();
     }
 
-    public List<Flashcard> getDeck() {
-        return flashcardList;
-    }
-
-    private void flushFlashCard() {
-        flashcardRepository.save(this.current);
-    }
-
-    private void updateLastView() {
-        this.current.setLastView(LocalDateTime.now());
-    }
-
     private void updateProficiency(boolean isCorrect) {
         if (isCorrect) {
             if (current.getHits() == 5) {
@@ -88,6 +85,5 @@ public class Deck implements IDeck {
             this.current.setProficiency(Proficiency.BEGINNER);
         }
     }
-
 
 }
