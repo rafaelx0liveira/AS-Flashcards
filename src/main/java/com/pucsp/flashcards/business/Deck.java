@@ -9,23 +9,18 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.UUID;
 
 public class Deck implements IDeck {
 
     @Autowired
-    private IFlashcardRepository flashcardRepository;
+    IFlashcardRepository flashcardRepository;
 
     private Flashcard current;
 
     private List<Flashcard> flashcardList = new ArrayList<>();
 
-    public Deck(int userId) {
-        flashcardList = flashcardRepository.findAllDaily(userId);
-    }
-
-    public Flashcard generateInitialDeck() {
-        return null;
+    public Deck() {
+        //flashcardList = flashcardRepository.findAllDaily(userId);
     }
 
     public Flashcard pick() {
@@ -43,7 +38,7 @@ public class Deck implements IDeck {
     }
 
     @Override
-    public Long deleteFlashcard(UUID uuid) {
+    public Long deleteFlashcard(String id) {
         return null;
     }
 
@@ -70,21 +65,26 @@ public class Deck implements IDeck {
         flushFlashCard();
     }
 
+    public List<Flashcard> getDeck() {
+        return flashcardList;
+    }
+
     private void flushFlashCard() {
         flashcardRepository.save(this.current);
     }
+
     private void updateLastView() {
         this.current.setLastView(LocalDateTime.now());
     }
+
     private void updateProficiency(boolean isCorrect) {
-        if(isCorrect) {
+        if (isCorrect) {
             if (current.getHits() == 5) {
                 this.current.setProficiency(Proficiency.EXPERT);
             } else if (current.getHits() == 2) {
                 this.current.setProficiency(Proficiency.INTERMEDIATE);
             }
-        }
-        else{
+        } else {
             this.current.setProficiency(Proficiency.BEGINNER);
         }
     }
