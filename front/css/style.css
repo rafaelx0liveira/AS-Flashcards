@@ -24,12 +24,14 @@
 @import "./util/formulario.css";
 @import "./util/animacao.css";
 
-/************** BICICLETAS **************/
+/************** FLASHCARDS **************/
 @import "./flashcards/flashcard-lista.css";
 
 /************** LOGIN **************/
-@import "./login/login.css";
+@import "./login-creat/login.css";
 
+/************** WORKSPACE **************/
+@import "./workspace/workspace.css";
 
 
 

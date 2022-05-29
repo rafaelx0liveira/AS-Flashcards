@@ -8,8 +8,10 @@
   <meta name="description" content="Login">
   <title>Login | Flashcard</title>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="./css/style.css" as="style">
+  <link rel="preload" href="./css/workspace/workspace.css" as="style">
 
+  <link rel="stylesheet" href="./css/workspace/workspace.css">
+  <link rel="preload" href="./css/style.css" as="style">
   <link rel="stylesheet" href="./css/style.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,38 +26,35 @@
       <a href="./">
         <img src="./img/icones/FlashCard.svg" width="136" height="32" alt="FlashCard">
       </a>
-
-      <nav aria-label="primaria">
-        <ul class="header-menu font-1-m cor-0">
-          <li><a href="./login.html">Login</a></li>
-          <li><a href="./creat.html">Criar conta</a></li>
-        </ul>
-      </nav>
     </div>
   </header>
 
   <main>
     <div class="titulo-bg">
       <div class="titulo container">
-        <h1 class="font-1-xxl cor-0 fadeInLeft" data-anime="400">Login<span class="cor-p1">.</span></h1>
+        <h1 class="font-1-xxl cor-0 fadeInLeft" data-anime="400">Seus flashcards<span class="cor-p1">.</span></h1>
       </div>
     </div>
 
       <section class="login-formulario fadeInRight" data-anime="400" aria-label="Formulário">
-        <form class="form" action="./js/login.js">
-
-          <div class="col-2">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="email@email.com">
+        <div class="card">
+          <div class="card__inner">
+            <div class="card__face card__face--front">
+              <h2>Card Front</h2>
+            </div>
+            <div class="card__face card__face--back">
+              <div class="card__content">
+                <div class="card__header">
+                </div>
+                <div class="card__body">
+                  <h3>Card back</h3>
+                  <p>Lorem ipsum <strong>dolor</strong> sit amet, consectetur <strong>adipiscing</strong> elit. Sed id erat a magna lobortis dictum. Nunc est arcu, <strong>lacinia</strong> quis sapien placerat, <strong>laoreet</strong> tincidunt nulla.</p>
+                </div>
+              </div>
+            </div>
           </div>
-          
-          <div class="col-2">
-            <label for="senha">Senha</label>
-            <input type="password" id="senha" name="senha">
-          </div>
-          
-          <button class="botao col-2">Login</button>
-        </form>
+        </div>
+        <script src="./js/workspace.js"></script>
       </section>
     </div>
   </main>
