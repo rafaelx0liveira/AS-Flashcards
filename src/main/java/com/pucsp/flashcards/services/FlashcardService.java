@@ -2,11 +2,16 @@ package com.pucsp.flashcards.services;
 
 import com.pucsp.flashcards.models.Flashcard;
 import com.pucsp.flashcards.models.Proficiency;
+import com.pucsp.flashcards.models.User;
 import com.pucsp.flashcards.repositories.IFlashcardRepository;
+import com.pucsp.flashcards.repositories.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -14,39 +19,71 @@ import java.util.Random;
 
 @Service
 public class FlashcardService implements IFlashcardService {
-
-    @Autowired
-    private final IFlashcardRepository repository;
-
     private Flashcard current;
 
     private List<Flashcard> flashcardList = new ArrayList<>();
 
-    public FlashcardService(IFlashcardRepository flashcardRepository) {
-        this.repository = flashcardRepository;
+    @Autowired
+    private final IFlashcardRepository flashcardRepository;
+    @Autowired
+    private final IUserRepository userRepository;
+
+    public FlashcardService(IFlashcardRepository flashcardRepository, IUserRepository userRepository) {
+        this.flashcardRepository = flashcardRepository;
+        this.userRepository = userRepository;
     }
 
     // CRUD METHODS -------------------------------------------------------
 
-    public Optional<Flashcard> getFlashcard(String id, Integer userId) {
-        return repository.findFlashcardByIdAndUserId(id, userId);
+    public Optional<Flashcard> getFlashcard(String flashcardId, Integer userId) {
+        var user = getUser(userId);
+        if (user.isEmpty()) {
+            return Optional.empty();
+        }
+        return flashcardRepository.findFlashcardByIdAndUserId(flashcardId, userId);
     }
 
-
-    public Flashcard getDailyFlashcards() {
-        return null;
+    public Optional<List<Flashcard>> getDailyFlashcards(Integer userId) {
+        var user = getUser(userId);
+        if (user.isEmpty()) {
+            return Optional.empty();
+        }
+        return Optional.ofNullable(flashcardRepository.findAllDaily(userId));
     }
 
-    public Flashcard createFlashcard() {
-        return null;
+    public Optional<Flashcard> createFlashcard(Flashcard flashcard, Integer userId) {
+        var user = getUser(userId);
+        if (user.isEmpty()) {
+            return Optional.empty();
+        }
+        flashcard.setUser(user.get());
+        flashcard.setLastView(LocalDateTime.now(ZoneId.of("UTC")));
+        flashcard.setHits(0);
+        flashcard.setProficiency(Proficiency.BEGINNER);
+        return Optional.of(flashcardRepository.save(flashcard));
     }
 
-    public Flashcard updateFlashcard() {
-        return null;
+    public Optional<Flashcard> playFlashcard(String flashcardId, Boolean isCorrect) {
+
+        var retrievedFlashcard = flashcardRepository.findById(flashcardId);
+
+        if (retrievedFlashcard.isPresent()) {
+            if (retrievedFlashcard.get().getId().equals(flashcardId)) {
+                this.current = retrievedFlashcard.get();
+                validateAnswer(isCorrect);
+                return Optional.of(flashcardRepository.save(retrievedFlashcard.get()));
+            }
+        }
+        return Optional.empty();
     }
 
-    public Flashcard deleteFlashcard() {
-        return null;
+    public Optional<Flashcard> deleteFlashcard(String id) {
+        var flashcard = flashcardRepository.findById(id);
+        if (flashcard.isEmpty()) {
+            return Optional.empty();
+        }
+        flashcardRepository.deleteById(id);
+        return flashcard;
     }
 
     // BUSINESS METHODS ---------------------------------------------------
@@ -56,7 +93,7 @@ public class FlashcardService implements IFlashcardService {
     }
 
     private void flushFlashCard() {
-        repository.save(this.current);
+        flashcardRepository.save(this.current);
     }
 
     private void updateLastView() {
@@ -86,4 +123,7 @@ public class FlashcardService implements IFlashcardService {
         }
     }
 
+    private Optional<User> getUser(Integer id) {
+        return userRepository.findById(id);
+    }
 }

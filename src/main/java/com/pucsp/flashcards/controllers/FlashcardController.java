@@ -4,14 +4,13 @@ import com.pucsp.flashcards.models.Flashcard;
 import com.pucsp.flashcards.models.User;
 import com.pucsp.flashcards.repositories.IFlashcardRepository;
 import com.pucsp.flashcards.repositories.IUserRepository;
+import com.pucsp.flashcards.services.IFlashcardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,31 +23,32 @@ public class FlashcardController {
     private IFlashcardRepository flashcardRepository;
     @Autowired
     private IUserRepository userRepository;
+    @Autowired
+    private IFlashcardService flashcardService;
 
-    @GetMapping("/{id}")
+    @GetMapping("/{flashcardId}")
     public ResponseEntity<?> getFlashcard(
-            @PathVariable("id") String id,
+            @PathVariable("flashcardId") String flashcardId,
             @RequestHeader("user-id") Integer userId) {
 
-        var user = getUser(userId);
-        if (user.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-        }
+        var flashcard = flashcardService.getFlashcard(flashcardId, userId);
 
-        var flashcard = flashcardRepository.findFlashcardByIdAndUserId(id, userId);
-        if (flashcard.isPresent()) {
-            return new ResponseEntity<>(flashcard, HttpStatus.OK);
+        if (flashcard.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(flashcard, HttpStatus.OK);
     }
 
     @GetMapping()
-    public ResponseEntity<List<Flashcard>> getDailyFlashcards(@RequestHeader("user-id") Integer userId) {
-        var user = getUser(userId);
-        if (user.isEmpty()) {
-            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+    public ResponseEntity<List<Flashcard>> getDailyFlashcards(
+            @RequestHeader("user-id") Integer userId) {
+
+        var flashcards = flashcardService.getDailyFlashcards(userId);
+
+        if (flashcards.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(flashcardRepository.findAllDaily(userId), HttpStatus.OK);
+        return new ResponseEntity<>(flashcards.get(), HttpStatus.OK);
     }
 
     @PostMapping()
@@ -56,42 +56,34 @@ public class FlashcardController {
             @RequestBody Flashcard flashcard,
             @RequestHeader("user-id") Integer userId) {
 
-        var user = getUser(userId);
-        if (user.isEmpty()) {
+        var createdFlashcard = flashcardService.createFlashcard(flashcard, userId);
+
+        if (createdFlashcard.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
-
-        flashcard.setUser(user.get());
-        flashcard.setLastView(LocalDateTime.now(ZoneId.of("UTC")));
-
-        return new ResponseEntity<>(flashcardRepository.save(flashcard), HttpStatus.CREATED);
+        return new ResponseEntity<>(createdFlashcard.get(), HttpStatus.CREATED);
     }
 
-    @PutMapping()
-    public ResponseEntity<?> updateFlashcard(@RequestBody Flashcard updatedFlashcard) {
+    @PutMapping("/{flashcardId}")
+    public ResponseEntity<?> playFlashcard(
+            @PathVariable("flashcardId") String flashcardId,
+            @RequestHeader("is-correct") Boolean isCorrect) {
 
-        var retrievedFlashcard = flashcardRepository.findById(updatedFlashcard.getId());
+        var updatedFlashcard = flashcardService.playFlashcard(flashcardId, isCorrect);
 
-        if (retrievedFlashcard.isPresent()) {
-            if (retrievedFlashcard.get().getId().equals(updatedFlashcard.getId())) {
-                updatedFlashcard.setLastView(LocalDateTime.now(ZoneId.of("UTC")));
-                return new ResponseEntity<>(flashcardRepository.save(updatedFlashcard), HttpStatus.CREATED);
-            }
+        if (updatedFlashcard.isPresent()) {
+            return new ResponseEntity<>(updatedFlashcard, HttpStatus.OK);
         }
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteFlashcard(@PathVariable("id") String id) {
-
-        var flashcard = flashcardRepository.findById(id);
-
+        var flashcard = flashcardService.deleteFlashcard(id);
         if (flashcard.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-
-        flashcardRepository.deleteById(id);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return new ResponseEntity<>(flashcard, HttpStatus.OK);
     }
 
     private Optional<User> getUser(Integer id) {

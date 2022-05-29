@@ -30,17 +30,14 @@ public class Flashcard implements Serializable {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Column(name = "title", columnDefinition = "varchar(256)")
-    private String title;
-
-    @Column(name = "description", columnDefinition = "tinytext")
-    private String description;
-
     @Column(name = "front", columnDefinition = "text")
     private String front;
 
     @Column(name = "back", columnDefinition = "text")
     private String back;
+
+    @Column(name = "description", columnDefinition = "tinytext")
+    private String description;
 
     @Column(name = "last_view", columnDefinition = "timestamp")
     private LocalDateTime lastView;

@@ -5,11 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="665f22aa-a5f7-4976-a646-89ebfe522606" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pucsp/flashcards/controllers/FlashcardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pucsp/flashcards/controllers/FlashcardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pucsp/flashcards/models/Flashcard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pucsp/flashcards/models/Flashcard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pucsp/flashcards/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pucsp/flashcards/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pucsp/flashcards/services/FlashcardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pucsp/flashcards/services/FlashcardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pucsp/flashcards/services/IFlashcardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pucsp/flashcards/services/IFlashcardService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
