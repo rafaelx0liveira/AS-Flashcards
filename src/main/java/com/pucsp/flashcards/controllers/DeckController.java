@@ -1,16 +1,6 @@
 package com.pucsp.flashcards.controllers;
 
-import com.pucsp.flashcards.business.Deck;
-import com.pucsp.flashcards.business.IDeck;
-import com.pucsp.flashcards.models.Flashcard;
-import com.pucsp.flashcards.repositories.IFlashcardRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.UUID;
 
 @RestController
 @RequestMapping("/decks")
@@ -19,6 +9,7 @@ public class DeckController {
     //@Autowired
     //private IDeck deck;
 
+    /*
     @Autowired
     IFlashcardRepository repository;
 
@@ -26,7 +17,7 @@ public class DeckController {
     public List<Flashcard> getDeck(@PathVariable("id") Integer id) {
         return repository.findAllDaily(id);
     }
-    /*
+
     @GetMapping("/randomize/{id}")
     public Flashcard randomizeFlashcard() {
         return deck.randomizeFlashcard();
