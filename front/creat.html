@@ -37,13 +37,18 @@
   <main>
     <div class="titulo-bg">
       <div class="titulo container">
-        <h1 class="font-1-xxl cor-0 fadeInLeft" data-anime="400">Login<span class="cor-p1">.</span></h1>
+        <h1 class="font-1-xxl cor-0 fadeInLeft" data-anime="400">Criar conta<span class="cor-p1">.</span></h1>
       </div>
     </div>
 
       <section class="login-formulario fadeInRight" data-anime="400" aria-label="Formulário">
-        <form class="form" action="./js/login.js">
+        <form class="form" action="./login.html">
 
+          <div class="col-2">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" name="nome" placeholder="Seu nome">
+          </div>
+          
           <div class="col-2">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" placeholder="email@email.com">
@@ -54,7 +59,7 @@
             <input type="password" id="senha" name="senha">
           </div>
           
-          <button class="botao col-2">Login</button>
+          <button class="botao col-2">Criar conta</button>
         </form>
       </section>
     </div>
