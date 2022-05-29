@@ -70,9 +70,15 @@ public class FlashcardController {
     @PutMapping()
     public ResponseEntity<?> updateFlashcard(@RequestBody Flashcard updatedFlashcard) {
 
-        updatedFlashcard.setLastView(LocalDateTime.now(ZoneId.of("UTC")));
+        var retrievedFlashcard = flashcardRepository.findById(updatedFlashcard.getId());
 
-        return new ResponseEntity<>(flashcardRepository.save(updatedFlashcard), HttpStatus.CREATED);
+        if (retrievedFlashcard.isPresent()) {
+            if (retrievedFlashcard.get().getId().equals(updatedFlashcard.getId())) {
+                updatedFlashcard.setLastView(LocalDateTime.now(ZoneId.of("UTC")));
+                return new ResponseEntity<>(flashcardRepository.save(updatedFlashcard), HttpStatus.CREATED);
+            }
+        }
+        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
 
     @DeleteMapping("/{id}")
