@@ -4,7 +4,7 @@ const card = document.querySelector(".card__inner");
 
 card.addEventListener("click", function (e) {
   card.classList.toggle('is-flipped');
-  
+  getDailyFlashcards();
 });
 
 async function getFlashcard() {
@@ -123,4 +123,15 @@ function readCookie(name) {
   }
   return ca[1];
   // get the user id -> var user_id = readCookie("user_id");
+}
+
+function on_off(div) {
+  var divbox = document.getElementById(criar - flashcard);
+
+  if (divbox.style.visibility == 'hidden') {
+    divbox.style.visibility = 'visible';
+  } else {
+    divbox.style.visibility = 'hidden';
+    c08921b2c0d568e2c7a6a1062d1e878c349fc4
+  }
 }
