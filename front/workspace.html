@@ -36,55 +36,42 @@
       </div>
     </div>
 
-      <section class="flashcard-workspace fadeInRight" data-anime="400" aria-label="Card">
+    <section class="flashcard-workspace fadeInRight" data-anime="400" aria-label="Card">
 
-        <div class="flashcard-workspace-opcoes">
-          <nav>
-            <ul class="font-1-m cor-5">
-              <li><a class="botao fadeInLeft" data-anime="600" href="">Acertou</a></li>
-              <li><a class="botao fadeInLeft" data-anime="600" href="">Errou</a></li>
-            </ul>
-          </nav>
-        </div>
-        <div class="card-opcoes">
-          <div class="card">
-            <div class="card__inner">
-              <div class="card__face card__face--front">
-                <h2>O que é uma arquitetura?</h2>
-              </div>
-              <div class="card__face card__face--back">
-                <div class="card__content">
-                  <div class="card__header">
-                  </div>
-                  <div class="card__body">
-                    <h3>O que é uma arquitetura?</h3>
-                    <p>Conjunto de estruturas para <strong>raciocínio</strong> a respeito de um <strong>sistema</strong> e de suas <strong>propriedades.</strong></p>
-                  </div>
+      <div class="flashcard-workspace-opcoes">
+        <nav>
+          <ul class="operacoes-flashcard font-1-m cor-5">
+            <li><button class="botao-excluir fadeInLeft" data-anime="600" href="">Excluir</a></li>
+            <li><button class="botao-compartilhar fadeInLeft" data-anime="600" href="">Compartilhar</a></li>
+            <li><button class="botao-criar fadeInLeft" data-anime="600" href="">Criar</a></li>
+
+          </ul>
+        </nav>
+      </div>
+      <div class="card-opcoes">
+        <div class="card" onclick="on_off()">
+          <div class="card__inner">
+            <div class="card__face card__face--front">
+              <h2>O que é uma arquitetura?</h2>
+            </div>
+            <div class="card__face card__face--back">
+              <div class="card__content">
+                <div class="card__header">
+                </div>
+                <div class="card__body">
+                  <h3>O que é uma arquitetura?</h3>
+                  <p>Conjunto de estruturas para <strong>raciocínio</strong> a respeito de um <strong>sistema</strong> e de suas <strong>propriedades.</strong></p>
                 </div>
               </div>
             </div>
           </div>
-          <div class="acerto-erro">
-            <a class="botao-flashcard-acerto fadeInLeft" data-anime="600" href="">Acertou</a>
-            <a class="botao-flashcard-erro fadeInLeft" data-anime="600" href="">Errou</a>
-          </div>
         </div>
-        <div class="criar-flashcard">
-          <form class="form" action="./js/login.js">
-            <div class="col-2">
-              <label for="pergunta">Pergunta</label>
-              <input type="text" id="pergunta" name="pergunta">
-            </div>
-            
-            <div class="col-2">
-              <label for="resposta">Resposta</label>
-              <input type="text" id="resposta" name="pergunta">
-            </div>
-            
-            <button class="botao col-2">Login</button>
-          </form>
+        <div class="acerto-erro hide">
+          <button class="botao-flashcard-acerto fadeInLeft" data-anime="600" href="">Acertou</a>
+          <button class="botao-flashcard-erro fadeInLeft" data-anime="600" href="">Errou</a>
         </div>
-      </section>
+      </div>
+    </section>
     </div>
   </main>
 
@@ -122,7 +109,7 @@
       <p class="footer-copy font-2-m cor-6">Flashcards © Alguns direitos reservados.</p>
     </div>
   </footer>
-  
+
   <script src="./js/workspace.js"></script>
   <script src="./js/plugins/simple-anime.js"></script>
   <script src="./js/script.js"></script>

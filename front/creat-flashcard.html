@@ -8,8 +8,10 @@
   <meta name="description" content="Login">
   <title>Login | Flashcard</title>
   <link rel="icon" href="./favicon.svg" type="image/svg+xml">
-  <link rel="preload" href="./css/style.css" as="style">
+  <link rel="preload" href="./css/workspace/workspace.css" as="style">
 
+  <link rel="stylesheet" href="./css/workspace/workspace.css">
+  <link rel="preload" href="./css/style.css" as="style">
   <link rel="stylesheet" href="./css/style.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,38 +26,33 @@
       <a href="./">
         <img src="./img/icones/FlashCard.svg" width="136" height="32" alt="FlashCard">
       </a>
-
-      <nav aria-label="primaria">
-        <ul class="header-menu font-1-m cor-0">
-          <li><a href="./login.html">Login</a></li>
-          <li><a href="./creat-user.html">Criar conta</a></li>
-        </ul>
-      </nav>
     </div>
   </header>
 
   <main>
     <div class="titulo-bg">
       <div class="titulo container">
-        <h1 class="font-1-xxl cor-0 fadeInLeft" data-anime="400">Login<span class="cor-p1">.</span></h1>
+        <h1 class="font-1-xxl cor-0 fadeInLeft" data-anime="400">Seus flashcards<span class="cor-p1">.</span></h1>
       </div>
     </div>
 
-      <section class="login-formulario fadeInRight" data-anime="400" aria-label="Formulário">
-        <form onsubmit="auth()" class="form" id="signup">
+      <section class="flashcard-workspace fadeInRight" data-anime="400" aria-label="Card">
+        <div class="criar-flashcard">
 
-          <div class="col-2">
-            <label for="email">Email</label>
-            <input type="email" id="email" name="email" placeholder="email@email.com">
-          </div>
-          
-          <div class="col-2">
-            <label for="senha">Senha</label>
-            <input type="password" id="senha" name="senha">
-          </div>
-          
-          <button type="submit" class="botao col-2">Login</button>
-        </form>
+          <form class="form" action="./js/login.js">
+            <div class="col-2">
+              <label for="pergunta">Pergunta</label>
+              <input type="text" id="pergunta" name="pergunta">
+            </div>
+
+            <div class="col-2">
+              <label for="resposta">Resposta</label>
+              <input type="text" id="resposta" name="pergunta">
+            </div>
+
+            <button class="botao col-2">Login</button>
+          </form>
+        </div>
       </section>
     </div>
   </main>
@@ -94,10 +91,10 @@
       <p class="footer-copy font-2-m cor-6">Flashcards © Alguns direitos reservados.</p>
     </div>
   </footer>
-
+  
+  <script src="./js/workspace.js"></script>
   <script src="./js/plugins/simple-anime.js"></script>
   <script src="./js/script.js"></script>
-  <script src="./js/login.js"></script>
 </body>
 
 </html>

@@ -16,6 +16,9 @@
 
 .botao,
 .botao-flashcard-acerto,
+.botao-excluir,
+.botao-compartilhar,
+.botao-criar,
 .botao-flashcard-erro{
   display: inline-block;
   padding: 16px 32px;
@@ -32,9 +35,16 @@
 
 .botao:hover,
 .botao-flashcard-acerto:hover,
-.botao-flashcard-erro:hover{
+.botao-flashcard-erro:hover,
+.botao-excluir:hover,
+.botao-compartilhar:hover,
+.botao-criar:hover{
   background: linear-gradient(#FFB60D, #E59317);
 }
+
+/* .botao-flashcard-erro{
+  background: linear-gradient(#ff310d, #e5175c);
+} */
 
 .acerto-erro{
   display: flex;
