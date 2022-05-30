@@ -42,7 +42,7 @@
     </div>
 
       <section class="login-formulario fadeInRight" data-anime="400" aria-label="Formulário">
-        <form class="form" action="./login.html">
+        <form onsubmit="create_user()" class="form" action="./login.html" id="create">
 
           <div class="col-2">
             <label for="nome">Nome</label>
@@ -102,6 +102,7 @@
 
   <script src="./js/plugins/simple-anime.js"></script>
   <script src="./js/script.js"></script>
+  <script src="./js/create_user.js"></script>
 </body>
 
 </html>
