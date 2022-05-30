@@ -51,6 +51,14 @@ public class FlashcardService implements IFlashcardService {
         return Optional.ofNullable(flashcardRepository.findAllDaily(userId));
     }
 
+    public Optional<List<Flashcard>> getAllFlashcardsByUserId(Integer userId) {
+        var user = getUser(userId);
+        if (user.isEmpty()) {
+            return Optional.empty();
+        }
+        return flashcardRepository.findAllFlashcardsByUserId(userId);
+    }
+
     public Optional<Flashcard> createFlashcard(Flashcard flashcard, Integer userId) {
         var user = getUser(userId);
         if (user.isEmpty()) {

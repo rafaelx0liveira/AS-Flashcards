@@ -25,4 +25,6 @@ public interface IFlashcardRepository extends JpaRepository<Flashcard, String> {
     List<Flashcard> findAllDaily(Integer id);
 
     Optional<Flashcard> findFlashcardByIdAndUserId(String id, Integer userId);
+
+    Optional<List<Flashcard>> findAllFlashcardsByUserId(Integer userId);
 }

@@ -2,7 +2,6 @@ package com.pucsp.flashcards.controllers;
 
 import com.pucsp.flashcards.models.Flashcard;
 import com.pucsp.flashcards.models.User;
-import com.pucsp.flashcards.repositories.IFlashcardRepository;
 import com.pucsp.flashcards.repositories.IUserRepository;
 import com.pucsp.flashcards.services.IFlashcardService;
 import lombok.RequiredArgsConstructor;
@@ -36,11 +35,23 @@ public class FlashcardController {
         return new ResponseEntity<>(flashcard, HttpStatus.OK);
     }
 
-    @GetMapping()
+    @GetMapping("/all-daily")
     public ResponseEntity<List<Flashcard>> getDailyFlashcards(
             @RequestHeader("user-id") Integer userId) {
 
         var flashcards = flashcardService.getDailyFlashcards(userId);
+
+        if (flashcards.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(flashcards.get(), HttpStatus.OK);
+    }
+
+    @GetMapping("/all-from-user")
+    public ResponseEntity<List<Flashcard>> getAllFlashcardsFromUser(
+            @RequestHeader("user-id") Integer userId) {
+
+        var flashcards = flashcardService.getAllFlashcardsByUserId(userId);
 
         if (flashcards.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
