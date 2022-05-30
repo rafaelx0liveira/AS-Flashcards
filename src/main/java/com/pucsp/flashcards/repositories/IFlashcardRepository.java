@@ -3,9 +3,12 @@ package com.pucsp.flashcards.repositories;
 import com.pucsp.flashcards.models.Flashcard;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
+@Repository
 public interface IFlashcardRepository extends JpaRepository<Flashcard, String> {
     @Query(value = "SELECT " +
             "* " +
@@ -21,4 +24,7 @@ public interface IFlashcardRepository extends JpaRepository<Flashcard, String> {
             nativeQuery = true)
     List<Flashcard> findAllDaily(Integer id);
 
+    Optional<Flashcard> findFlashcardByIdAndUserId(String id, Integer userId);
+
+    Optional<List<Flashcard>> findAllFlashcardsByUserId(Integer userId);
 }
