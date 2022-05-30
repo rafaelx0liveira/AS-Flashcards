@@ -37,4 +37,13 @@ public class UserController {
         return new ResponseEntity<>(repository.save(user), HttpStatus.CREATED);
     }
 
+    @PostMapping("/login")
+    public ResponseEntity<User> login(@RequestBody User user) {
+        var authenticatedUser = repository.findByEmailAndPassword(user.getEmail(), user.getPassword());
+        if (authenticatedUser != null) {
+            return new ResponseEntity<>(authenticatedUser, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
+    }
+
 }

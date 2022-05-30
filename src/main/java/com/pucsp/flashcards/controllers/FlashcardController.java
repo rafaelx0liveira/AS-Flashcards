@@ -18,9 +18,6 @@ import java.util.Optional;
 @RequestMapping("/flashcards")
 @RequiredArgsConstructor(onConstructor = @__({@Autowired}))
 public class FlashcardController {
-
-    @Autowired
-    private IFlashcardRepository flashcardRepository;
     @Autowired
     private IUserRepository userRepository;
     @Autowired

@@ -42,7 +42,7 @@
     </div>
 
       <section class="login-formulario fadeInRight" data-anime="400" aria-label="Formulário">
-        <form class="form" action="./js/login.js">
+        <form class="form" /*method="post"*/ id="signup">
 
           <div class="col-2">
             <label for="email">Email</label>
@@ -54,7 +54,7 @@
             <input type="password" id="senha" name="senha">
           </div>
           
-          <button class="botao col-2">Login</button>
+          <button type="submit" onClick="loginEndpoint()" class="botao col-2">Login</button>
         </form>
       </section>
     </div>
@@ -97,6 +97,7 @@
 
   <script src="./js/plugins/simple-anime.js"></script>
   <script src="./js/script.js"></script>
+  <script src="./js/login.js"></script>
 </body>
 
 </html>
