@@ -36,25 +36,54 @@
       </div>
     </div>
 
-      <section class="login-formulario fadeInRight" data-anime="400" aria-label="Formulário">
-        <div class="card">
-          <div class="card__inner">
-            <div class="card__face card__face--front">
-              <h2>Card Front</h2>
-            </div>
-            <div class="card__face card__face--back">
-              <div class="card__content">
-                <div class="card__header">
-                </div>
-                <div class="card__body">
-                  <h3>Card back</h3>
-                  <p>Lorem ipsum <strong>dolor</strong> sit amet, consectetur <strong>adipiscing</strong> elit. Sed id erat a magna lobortis dictum. Nunc est arcu, <strong>lacinia</strong> quis sapien placerat, <strong>laoreet</strong> tincidunt nulla.</p>
+      <section class="flashcard-workspace fadeInRight" data-anime="400" aria-label="Card">
+
+        <div class="flashcard-workspace-opcoes">
+          <nav>
+            <ul class="font-1-m cor-5">
+              <li><a class="botao fadeInLeft" data-anime="600" href="">Acertou</a></li>
+              <li><a class="botao fadeInLeft" data-anime="600" href="">Errou</a></li>
+            </ul>
+          </nav>
+        </div>
+        <div class="card-opcoes">
+          <div class="card">
+            <div class="card__inner">
+              <div class="card__face card__face--front">
+                <h2>O que é uma arquitetura?</h2>
+              </div>
+              <div class="card__face card__face--back">
+                <div class="card__content">
+                  <div class="card__header">
+                  </div>
+                  <div class="card__body">
+                    <h3>O que é uma arquitetura?</h3>
+                    <p>Conjunto de estruturas para <strong>raciocínio</strong> a respeito de um <strong>sistema</strong> e de suas <strong>propriedades.</strong></p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <div class="acerto-erro">
+            <a class="botao-flashcard-acerto fadeInLeft" data-anime="600" href="">Acertou</a>
+            <a class="botao-flashcard-erro fadeInLeft" data-anime="600" href="">Errou</a>
+          </div>
         </div>
-        <script src="./js/workspace.js"></script>
+        <div class="criar-flashcard">
+          <form class="form" action="./js/login.js">
+            <div class="col-2">
+              <label for="pergunta">Pergunta</label>
+              <input type="text" id="pergunta" name="pergunta">
+            </div>
+            
+            <div class="col-2">
+              <label for="resposta">Resposta</label>
+              <input type="text" id="resposta" name="pergunta">
+            </div>
+            
+            <button class="botao col-2">Login</button>
+          </form>
+        </div>
       </section>
     </div>
   </main>
@@ -65,7 +94,7 @@
       <div class="footer-contato">
         <h3 class="font-2-l-b cor-0">Contato</h3>
         <ul class="font-2-m cor-5">
-          <li>Rua Marquês de Paranaguá, 42 - Paulista</li>
+          <li>Rua Marquês de Paranaguá, 42 - Consolação</li>
           <li>São Paulo - SP</li>
         </ul>
         <div class="footer-redes">
@@ -93,7 +122,8 @@
       <p class="footer-copy font-2-m cor-6">Flashcards © Alguns direitos reservados.</p>
     </div>
   </footer>
-
+  
+  <script src="./js/workspace.js"></script>
   <script src="./js/plugins/simple-anime.js"></script>
   <script src="./js/script.js"></script>
 </body>

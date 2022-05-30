@@ -14,7 +14,9 @@
           BOTÕES
 ****************************/
 
-.botao{
+.botao,
+.botao-flashcard-acerto,
+.botao-flashcard-erro{
   display: inline-block;
   padding: 16px 32px;
   background: linear-gradient(#FFBF00, #F2A60C);
@@ -28,8 +30,29 @@
   cursor: pointer;
 }
 
-.botao:hover{
+.botao:hover,
+.botao-flashcard-acerto:hover,
+.botao-flashcard-erro:hover{
   background: linear-gradient(#FFB60D, #E59317);
+}
+
+.acerto-erro{
+  display: flex;
+  justify-content: center;
+}
+
+.botao-flashcard-acerto,
+.botao-flashcard-erro{
+  margin-top: 70px;
+  align-items: center;
+}
+
+.botao-flashcard-acerto{
+  margin-right: 40px;
+}
+
+.botao-flashcard-erro{
+  margin-left: 40px;
 }
 
 .botao.secundario{
