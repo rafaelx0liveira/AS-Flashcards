@@ -72,7 +72,7 @@ public class FlashcardController {
         return new ResponseEntity<>(createdFlashcard.get(), HttpStatus.CREATED);
     }
 
-    @PutMapping("/{flashcardId}")
+    @PostMapping("/{flashcardId}")
     public ResponseEntity<?> playFlashcard(
             @PathVariable("flashcardId") String flashcardId,
             @RequestHeader("is-correct") Boolean isCorrect) {

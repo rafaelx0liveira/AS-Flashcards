@@ -1,6 +1,7 @@
 package com.pucsp.flashcards.models;
 
 import lombok.Getter;
+import lombok.NonNull;
 import lombok.Setter;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.TypeDef;
@@ -30,21 +31,18 @@ public class Flashcard implements Serializable {
     @JoinColumn(name = "user_id")
     private User user;
 
-    @Column(name = "front", columnDefinition = "text")
+    @Column(name = "front", nullable = false, columnDefinition = "text")
     private String front;
 
-    @Column(name = "back", columnDefinition = "text")
+    @Column(name = "back", nullable = false, columnDefinition = "text")
     private String back;
 
-    @Column(name = "description", columnDefinition = "tinytext")
-    private String description;
-
-    @Column(name = "last_view", columnDefinition = "timestamp")
+    @Column(name = "last_view", nullable = false, columnDefinition = "timestamp")
     private LocalDateTime lastView;
 
-    @Column(name = "proficiency")
+    @Column(name = "proficiency", nullable = false)
     private Proficiency proficiency;
 
-    @Column(name = "hits", columnDefinition = "int")
+    @Column(name = "hits", nullable = false, columnDefinition = "int")
     private int hits;
 }
