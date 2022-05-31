@@ -43,7 +43,8 @@
           <ul class="operacoes-flashcard font-1-m cor-5">
             <li><button class="botao-excluir fadeInLeft" data-anime="600" href="">Excluir</a></li>
             <li><button class="botao-compartilhar fadeInLeft" data-anime="600" href="">Compartilhar</a></li>
-            <li><button class="botao-criar fadeInLeft" data-anime="600" href="">Criar</a></li>
+            <li><button class="botao-compartilhar fadeInLeft" data-anime="600" href="">Sortear</a></li>
+            <li><a class="botao-criar fadeInLeft" data-anime="600" href="./creat-flashcard.html">Criar</a></li>
 
           </ul>
         </nav>
@@ -66,9 +67,9 @@
             </div>
           </div>
         </div>
-        <div class="acerto-erro hide">
-          <button class="botao-flashcard-acerto fadeInLeft" data-anime="600" href="">Acertou</a>
-          <button class="botao-flashcard-erro fadeInLeft" data-anime="600" href="">Errou</a>
+        <div class="acerto-erro hide" id="botao-resposta">
+          <button type="submit" class="botao-flashcard-acerto fadeInLeft" id="acertou" data-anime="600" value="true" onclick="disableButtons()" >Acertou</a>
+          <button type="submit" class="botao-flashcard-erro fadeInLeft" id="errou" data-anime="600" value="false" onclick="disableButtons()">Errou</a>
         </div>
       </div>
     </section>

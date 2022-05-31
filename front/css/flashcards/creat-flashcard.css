@@ -1,0 +1,27 @@
+/*********************************
+          CRIAR-FLASHCARD
+*********************************/
+
+.flashcard-formulario{
+  padding: 60px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+
+.flashcard-formulario{
+  border-radius: 0 5px 5px 0;
+  background: var(--cor-0) url("../../img/dec/bottom-right.svg") no-repeat bottom 20px right 20px;
+}
+
+
+@media(max-width: 800px){
+
+  .flashcard-formulario{
+    border-radius: 0 0 5px 5px;
+  }
+
+  .flashcard-formulario h2{
+    margin-bottom: 32px;
+  }
+
+}

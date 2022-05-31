@@ -32,28 +32,26 @@
   <main>
     <div class="titulo-bg">
       <div class="titulo container">
-        <h1 class="font-1-xxl cor-0 fadeInLeft" data-anime="400">Seus flashcards<span class="cor-p1">.</span></h1>
+        <h1 class="font-1-xxl cor-0 fadeInLeft" data-anime="400">Criar flashcard<span class="cor-p1">.</span></h1>
       </div>
     </div>
 
-      <section class="flashcard-workspace fadeInRight" data-anime="400" aria-label="Card">
-        <div class="criar-flashcard">
+    <section class="flashcard-formulario fadeInRight" data-anime="400" aria-label="Formulário">
+      <form class="form" id="formulario-flashcard" action="">
 
-          <form class="form" action="./js/login.js">
-            <div class="col-2">
-              <label for="pergunta">Pergunta</label>
-              <input type="text" id="pergunta" name="pergunta">
-            </div>
-
-            <div class="col-2">
-              <label for="resposta">Resposta</label>
-              <input type="text" id="resposta" name="pergunta">
-            </div>
-
-            <button class="botao col-2">Login</button>
-          </form>
+        <div class="col-2">
+          <label for="pergunta">Pergunta</label>
+          <input type="text" id="pergunta" name="pergunta" placeholder="Insira a pergunta" required>
         </div>
-      </section>
+
+        <div class="col-2">
+          <label for="resposta">Resposta</label>
+          <input type="text" id="resposta" name="resposta" placeholder="Insira a resposta" required>
+        </div>
+
+        <button class="botao col-2">Criar</button>
+      </form>
+    </section>
     </div>
   </main>
 
@@ -91,7 +89,7 @@
       <p class="footer-copy font-2-m cor-6">Flashcards © Alguns direitos reservados.</p>
     </div>
   </footer>
-  
+
   <script src="./js/workspace.js"></script>
   <script src="./js/plugins/simple-anime.js"></script>
   <script src="./js/script.js"></script>

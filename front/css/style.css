@@ -24,6 +24,7 @@
 
 /************** FLASHCARDS **************/
 @import "./flashcards/flashcard-lista.css";
+@import "./flashcards/creat-flashcard.css";
 
 /************** LOGIN **************/
 @import "./login-creat/login.css";
