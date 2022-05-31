@@ -4,7 +4,7 @@ const card = document.querySelector(".card__inner");
 
 card.addEventListener("click", function (e) {
   card.classList.toggle("is-flipped");
-  getDailyFlashcards();
+  
 });
 
 async function getFlashcard() {
@@ -97,10 +97,21 @@ async function playFlashcard() {
 
 async function deleteFlashcard() {
   const flashcard_id = "dc6b29d9-7f90-483d-9e13-630a89d969d5"; // pegar do form
-  const user_id = readCookie("user_id");
   const url = base_url + "/" + flashcard_id;
 
-  // to-do
+  const options = {
+    method: "DELETE",
+    headers: {
+      mode: 'no-cors',
+      "Access-Control-Allow-Origin": "*",
+      "Content-Type": "application/json"
+    },
+  };
+
+  const response = await fetch(url, options);
+  const data = await response.json();
+  console.log(data);
+  alert(data);
 }
 
 function readCookie(name) {

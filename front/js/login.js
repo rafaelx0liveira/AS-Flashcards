@@ -18,9 +18,9 @@ async function auth() {
     body: JSON.stringify(body_data)
   };
 
-  const response = await fetch(base_url + '/login', options);
-  const data = await response.json();
-  
+    const response = await fetch(base_url + '/login', options);
+    const data = await response.json();
+
   if (response.ok) {
     writeCookie("user_id", data.id, 1);
     location.replace("../workspace.html");

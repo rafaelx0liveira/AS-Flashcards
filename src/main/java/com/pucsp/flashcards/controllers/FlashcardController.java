@@ -16,6 +16,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/flashcards")
 @RequiredArgsConstructor(onConstructor = @__({@Autowired}))
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 public class FlashcardController {
     @Autowired
     private IUserRepository userRepository;
