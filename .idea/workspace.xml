@@ -16,8 +16,9 @@
       <change beforePath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/compileJava/previous-compilation-data.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/js/workspace.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/js/workspace.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/pucsp/flashcards/controllers/FlashcardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pucsp/flashcards/controllers/FlashcardController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pucsp/flashcards/models/Flashcard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pucsp/flashcards/models/Flashcard.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/pucsp/flashcards/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pucsp/flashcards/models/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pucsp/flashcards/repositories/IFlashcardRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pucsp/flashcards/repositories/IFlashcardRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pucsp/flashcards/services/FlashcardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pucsp/flashcards/services/FlashcardService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/pucsp/flashcards/services/IFlashcardService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/pucsp/flashcards/services/IFlashcardService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -210,15 +211,6 @@
     </option>
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/pucsp/flashcards/controllers/FlashcardController.java</url>
-          <line>89</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="GradleRunConfiguration">
         <watch expression="flash.user" language="JAVA" />

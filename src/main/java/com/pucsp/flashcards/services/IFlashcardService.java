@@ -11,6 +11,8 @@ public interface IFlashcardService {
 
     Optional<List<Flashcard>> getDailyFlashcards(Integer userId);
 
+    Optional<Flashcard> pickFlashcard(Integer userId);
+
     Optional<List<Flashcard>> getAllFlashcardsByUserId(Integer userId);
 
     Optional<Flashcard> createFlashcard(Flashcard flashcard, Integer userId);

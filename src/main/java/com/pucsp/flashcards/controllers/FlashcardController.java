@@ -16,6 +16,7 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/flashcards")
 @RequiredArgsConstructor(onConstructor = @__({@Autowired}))
+@CrossOrigin(origins = "http://127.0.0.1:5500")
 public class FlashcardController {
     @Autowired
     private IUserRepository userRepository;
@@ -31,6 +32,18 @@ public class FlashcardController {
 
         if (flashcard.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(flashcard, HttpStatus.OK);
+    }
+
+    @GetMapping("/pick")
+    public ResponseEntity<Optional<Flashcard>> pickFlashcard(
+            @RequestHeader("user-id") Integer userId) {
+
+        var flashcard = flashcardService.pickFlashcard(userId);
+
+        if (flashcard.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return new ResponseEntity<>(flashcard, HttpStatus.OK);
     }
