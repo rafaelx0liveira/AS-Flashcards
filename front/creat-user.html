@@ -42,7 +42,7 @@
     </div>
 
       <section class="login-formulario fadeInRight" data-anime="400" aria-label="Formulário">
-        <form onsubmit="create_user()" class="form" action="./login.html" id="create">
+        <form class="form" action="./login.html" id="create">
 
           <div class="col-2">
             <label for="nome">Nome</label>
@@ -59,7 +59,7 @@
             <input type="password" id="senha" name="senha" required>
           </div>
           
-          <button class="botao col-2">Criar conta</button>
+          <button type="button" class="botao col-2" onclick="create_user()">Criar conta</button>
         </form>
       </section>
     </div>

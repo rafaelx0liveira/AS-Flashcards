@@ -42,7 +42,7 @@
     </div>
 
       <section class="login-formulario fadeInRight" data-anime="400" aria-label="Formulário">
-        <form onsubmit="auth()" class="form" id="signup">
+        <form method="post" class="form" id="signup">
 
           <div class="col-2">
             <label for="email">Email</label>
@@ -54,7 +54,7 @@
             <input type="password" id="senha" name="senha" required>
           </div>
           
-          <button type="submit" class="botao col-2">Login</button>
+          <button type="button" onclick="auth()" class="botao col-2">Login</button>
         </form>
       </section>
     </div>

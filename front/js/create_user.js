@@ -5,9 +5,9 @@ const form = document.getElementById('create');
 async function create_user() {
 
   const body_data = {
-    name: form.elements['nome'].value,
-    email: form.elements['email'].value,
-    password: form.elements['senha'].value
+    name: document.getElementById("nome").value,
+    email: document.getElementById("email").value,
+    password: document.getElementById("senha").value
   }
 
   const options = {
@@ -20,10 +20,10 @@ async function create_user() {
 
   const response = await fetch(base_url, options);
   const data = await response.json();
-  
-  if (response === 201) {
+
+  if (response.status === 201) {
     location.replace("../login.html");
   } else {
-    location.replace("../creat.html");
+    location.replace("../creat-user.html");
   }
 }

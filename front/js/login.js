@@ -1,31 +1,30 @@
 const base_url = 'http://127.0.0.1:8080/users'
 
-const form = document.getElementById('signup');
-
 async function auth() {
+
+  const url = base_url + '/login';
 
   const body_data = {
     name: "",
-    email: form.elements['email'].value,
-    password: form.elements['senha'].value
+    email: document.getElementById("email").value,
+    password: document.getElementById("senha").value
   }
 
   const options = {
     method: 'POST',
     headers: {
+      'Accept': 'application/json',
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(body_data)
   };
-
-    const response = await fetch(base_url + '/login', options);
+    
+    const response = await fetch(url, options);
     const data = await response.json();
 
   if (response.ok) {
     writeCookie("user_id", data.id, 1);
     location.replace("../workspace.html");
-  } else {
-    location.replace("./login.html");
   }
 }
 
