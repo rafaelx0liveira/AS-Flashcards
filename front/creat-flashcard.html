@@ -37,7 +37,7 @@
     </div>
 
     <section class="flashcard-formulario fadeInRight" data-anime="400" aria-label="Formulário">
-      <form class="form" id="formulario-flashcard" action="">
+      <form method="post" class="form" id="formulario-flashcard" action="">
 
         <div class="col-2">
           <label for="pergunta">Pergunta</label>
@@ -49,7 +49,7 @@
           <input type="text" id="resposta" name="resposta" placeholder="Insira a resposta" required>
         </div>
 
-        <button class="botao col-2">Criar</button>
+        <button type="button" class="botao col-2" onclick="createFlashcard()">Criar</button>
       </form>
     </section>
     </div>
