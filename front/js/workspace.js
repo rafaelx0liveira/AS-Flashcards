@@ -5,11 +5,15 @@ const form = document.getElementById("formulario-flashcard");
 
 card.addEventListener("click", function (e) {
   card.classList.toggle("is-flipped");
-  
+  //getFlashcard();
+  //getDailyFlashcards();
+  //getAllFlashcardsFromUser();
+  //createFlashcard();
+  //deleteFlashcard();
 });
 
 async function getFlashcard() {
-  const flashcard_id = "dc6b29d9-7f90-483d-9e13-630a89d969d5"; // pegar do form
+  const flashcard_id = "077bf0d3-b541-489b-af33-c2ef9705aeb9"; // pegar do form
   const user_id = readCookie("user_id");
   const url = base_url + "/" + flashcard_id;
 
@@ -23,12 +27,6 @@ async function getFlashcard() {
 
   const response = await fetch(url, options);
   const data = await response.json();
-
-  // fetch(url, options)
-  //   .then(response=> response)
-  //   .then (data => {
-  //     card.innerHTML = data.
-  //   })
 }
 
 async function getDailyFlashcards() {
@@ -45,6 +43,7 @@ async function getDailyFlashcards() {
 
   const response = await fetch(url, options);
   const data = await response.json();
+  console.log(data);
 }
 
 async function getAllFlashcardsFromUser() {
@@ -61,6 +60,7 @@ async function getAllFlashcardsFromUser() {
 
   const response = await fetch(url, options);
   const data = await response.json();
+  console.log(data);
 }
 
 async function createFlashcard() {
@@ -68,8 +68,8 @@ async function createFlashcard() {
   const user_id = readCookie("user_id");
 
   const body_data = {
-    front: form.elements["pergunta"].value, // pegar do form
-    back: form.elements["resposta"].value, // pegar do form
+    front: document.getElementById('pergunta').value,
+    back: document.getElementById('resposta').value
   };
 
   const options = {
@@ -83,59 +83,63 @@ async function createFlashcard() {
 
   const response = await fetch(url, options);
   const data = await response.json();
+  console.log(data);
 }
 
-async function playFlashcard() {
-  const flashcard_id = "dc6b29d9-7f90-483d-9e13-630a89d969d5"; // pegar do form
+
+// ============================================================================
+
+let flashcard_being_played;
+
+async function pickFlashcard() {
+
+  const user_id = readCookie("user_id");
+  const url = base_url + "/pick";
+
+  const options = {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      "user-id": user_id,
+    },
+  };
+
+  const response = await fetch(url, options);
+  const flashcard = await response.json();
+
+  flashcard_being_played = flashcard;
+  console.log(flashcard);
+}
+
+async function playFlashcard(boolean) {
+
+  const flashcard_id = flashcard_being_played.id;
   const url = base_url + "/" + flashcard_id;
-
-  var pick 
-
-  var botaoAcerto = document.getElementById["acertou"].value;
-  var botaoErro = document.getElementById["errou"].value;
-
-  botaoAcerto.disabled = true;
-  botaoErro.disabled = true;
-
-  var controle;
-
-  if (botaoAcerto === true) {
-    controle = true;
-  }
-  else if(botaoErro === false){
-    controle = false;
-  }
 
   const options = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "is-correct": controle,
+      "is-correct": boolean,
     },
   };
 
   const response = await fetch(url, options);
   const data = await response.json();
+  console.log(data);
 }
 
-function print(valor) {
-  var letra = document.getElementById('acertou').value;
-  alert(letra);
+async function waitTrueOrFalseAnswer() { // TA COM BUG
+  const true_button = document.getElementById('acertou');
+  const false_button = document.getElementById('errou');
+
+  if (true_button.value === true) {
+    playFlashcard(true);
+  } else if (false_button.value === true) {
+    playFlashcard(false);
   }
-
-function disableButtons(){
-  var botaoAcerto = document.getElementById["acertou"].value;
-  var botaoErro = document.getElementById["errou"].value;
-
-  botaoAcerto.disabled = true;
-  botaoErro.disabled = true;
-
-  var valor = botaoAcerto.value; 
-
-  alert(valor);
-  alert(botaoErro.value);
-
 }
+
 
 async function deleteFlashcard() {
   const flashcard_id = "dc6b29d9-7f90-483d-9e13-630a89d969d5"; // pegar do form
@@ -153,7 +157,6 @@ async function deleteFlashcard() {
   const response = await fetch(url, options);
   const data = await response.json();
   console.log(data);
-  alert(data);
 }
 
 function readCookie(name) {
