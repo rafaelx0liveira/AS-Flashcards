@@ -23,6 +23,12 @@ async function getFlashcard() {
 
   const response = await fetch(url, options);
   const data = await response.json();
+
+  // fetch(url, options)
+  //   .then(response=> response)
+  //   .then (data => {
+  //     card.innerHTML = data.
+  //   })
 }
 
 async function getDailyFlashcards() {
