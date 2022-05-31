@@ -36,6 +36,18 @@ public class FlashcardController {
         return new ResponseEntity<>(flashcard, HttpStatus.OK);
     }
 
+    @GetMapping("/pick")
+    public ResponseEntity<Optional<Flashcard>> pickFlashcard(
+            @RequestHeader("user-id") Integer userId) {
+
+        var flashcard = flashcardService.pickFlashcard(userId);
+
+        if (flashcard.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(flashcard, HttpStatus.OK);
+    }
+
     @GetMapping("/all-daily")
     public ResponseEntity<List<Flashcard>> getDailyFlashcards(
             @RequestHeader("user-id") Integer userId) {

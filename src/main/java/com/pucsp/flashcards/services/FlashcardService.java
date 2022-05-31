@@ -71,6 +71,16 @@ public class FlashcardService implements IFlashcardService {
         return Optional.of(flashcardRepository.save(flashcard));
     }
 
+    public Optional<Flashcard> pickFlashcard(Integer userId) {
+        var list = getDailyFlashcards(userId);
+        if (list.isPresent()) {
+            if (list.get().size() != 0) {
+                return Optional.of(randomizeFlashcard(list.get()));
+            }
+        }
+        return Optional.empty();
+    }
+
     public Optional<Flashcard> playFlashcard(String flashcardId, Boolean isCorrect) {
 
         var retrievedFlashcard = flashcardRepository.findById(flashcardId);
@@ -95,9 +105,9 @@ public class FlashcardService implements IFlashcardService {
     }
 
     // BUSINESS METHODS ---------------------------------------------------
-    public Flashcard pick() {
+    public Flashcard randomizeFlashcard(List<Flashcard> list) {
         Random r = new Random();
-        return flashcardList.get(r.nextInt(0, flashcardList.size()));
+        return list.get(r.nextInt((list.size() - 1) + 1));
     }
 
     private void flushFlashCard() {

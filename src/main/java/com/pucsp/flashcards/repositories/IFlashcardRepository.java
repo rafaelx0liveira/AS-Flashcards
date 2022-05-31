@@ -15,11 +15,11 @@ public interface IFlashcardRepository extends JpaRepository<Flashcard, String> {
             "FROM " +
             "flashcards " +
             "WHERE " +
-            "(proficiency=0 AND last_view <= (CURDATE() - INTERVAL 1 DAY))" +
+            "((proficiency=0 AND last_view <= (CURDATE() - INTERVAL 1 DAY))" +
             "OR" +
             "(proficiency=1 AND hits<=5 AND last_view >= (CURDATE() - INTERVAL 3 DAY))" +
             "OR" +
-            "(proficiency=2 AND last_view <= (CURDATE() - INTERVAL 7 DAY))" +
+            "(proficiency=2 AND last_view <= (CURDATE() - INTERVAL 7 DAY)))" +
             "AND user_id=?#{[0]}",
             nativeQuery = true)
     List<Flashcard> findAllDaily(Integer id);
