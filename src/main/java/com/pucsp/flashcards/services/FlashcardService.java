@@ -64,8 +64,9 @@ public class FlashcardService implements IFlashcardService {
         if (user.isEmpty()) {
             return Optional.empty();
         }
+
         flashcard.setUser(user.get());
-        flashcard.setLastView(LocalDateTime.now(ZoneId.of("UTC")));
+        flashcard.setLastView(LocalDateTime.parse("1970-01-01T01:00:00"));
         flashcard.setHits(0);
         flashcard.setProficiency(Proficiency.BEGINNER);
         return Optional.of(flashcardRepository.save(flashcard));
