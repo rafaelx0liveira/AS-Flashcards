@@ -128,7 +128,7 @@ async function playFlashcard(value) {
   const url = base_url + "/" + flashcard_id;
 
   
-  if (value) {
+  if (value == "true") {
     hits++;
   }
   
