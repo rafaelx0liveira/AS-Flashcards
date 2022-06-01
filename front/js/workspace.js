@@ -129,17 +129,15 @@ async function playFlashcard(boolean) {
   console.log(data);
 }
 
-async function waitTrueOrFalseAnswer() { // TA COM BUG
-  const true_button = document.getElementById('acertou');
-  const false_button = document.getElementById('errou');
+async function waitTrueOrFalseAnswer(value) {
 
-  if (true_button.value === true) {
+  if (value === "true") {
     playFlashcard(true);
-  } else if (false_button.value === true) {
+  } else if (value === "false") {
     playFlashcard(false);
   }
-}
 
+}
 
 async function deleteFlashcard() {
   const flashcard_id = "dc6b29d9-7f90-483d-9e13-630a89d969d5"; // pegar do form
