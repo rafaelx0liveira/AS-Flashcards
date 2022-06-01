@@ -159,6 +159,10 @@ body {
   margin-bottom: 30px;
 }
 
+.operacoes-flashcard li:last-child{
+  margin-top: 100px;
+}
+
 @media (max-width: 800px) {
   .flashcard-workspace {
     padding: 20px;

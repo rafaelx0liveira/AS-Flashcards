@@ -3,13 +3,12 @@ const base_url = "http://127.0.0.1:8080/flashcards";
 const card = document.querySelector(".card__inner");
 const form = document.getElementById("formulario-flashcard");
 
+let has_ten_flashcards = false;
+let flashcard_being_played;
+let hits = 0;
+
 card.addEventListener("click", function (e) {
   card.classList.toggle("is-flipped");
-  //getFlashcard();
-  //getDailyFlashcards();
-  //getAllFlashcardsFromUser();
-  //createFlashcard();
-  //deleteFlashcard();
 });
 
 async function getFlashcard() {
@@ -43,7 +42,6 @@ async function getDailyFlashcards() {
 
   const response = await fetch(url, options);
   const data = await response.json();
-  console.log(data);
 }
 
 async function getAllFlashcardsFromUser() {
@@ -60,7 +58,18 @@ async function getAllFlashcardsFromUser() {
 
   const response = await fetch(url, options);
   const data = await response.json();
-  console.log(data);
+  return data;
+}
+
+async function checkTenFlashcards() {
+
+  let flashcards = await getAllFlashcardsFromUser();
+
+  if (flashcards.length >= 10) {
+    has_ten_flashcards = true;
+  } else {
+    location.replace("../creat-flashcard.html");
+  }
 }
 
 async function createFlashcard() {
@@ -83,13 +92,12 @@ async function createFlashcard() {
 
   const response = await fetch(url, options);
   const data = await response.json();
-  console.log(data);
+
+  await checkTenFlashcards();
+  if (has_ten_flashcards) {
+    location.replace("../workspace.html");
+  }
 }
-
-
-// ============================================================================
-
-let flashcard_being_played;
 
 async function pickFlashcard() {
 
@@ -105,38 +113,37 @@ async function pickFlashcard() {
   };
 
   const response = await fetch(url, options);
-  const flashcard = await response.json();
+  const data = await response.json();
 
-  flashcard_being_played = flashcard;
-  console.log(flashcard);
+  flashcard_being_played = data;
+
+  document.getElementById("flashcard-front").innerHTML = flashcard_being_played.front;
+  document.getElementById("flashcard-front-2").innerHTML = flashcard_being_played.front;
+  document.getElementById("flashcard-back").innerHTML = flashcard_being_played.back;
 }
 
-async function playFlashcard(boolean) {
+async function playFlashcard(value) {
 
   const flashcard_id = flashcard_being_played.id;
   const url = base_url + "/" + flashcard_id;
 
+  
+  if (value) {
+    hits++;
+  }
+  
+  document.getElementById("numero-acertos").innerHTML =  hits;
+  
   const options = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "is-correct": boolean,
+      "is-correct": value,
     },
   };
 
   const response = await fetch(url, options);
   const data = await response.json();
-  console.log(data);
-}
-
-async function waitTrueOrFalseAnswer(value) {
-
-  if (value === "true") {
-    playFlashcard(true);
-  } else if (value === "false") {
-    playFlashcard(false);
-  }
-
 }
 
 async function deleteFlashcard() {
@@ -177,13 +184,12 @@ function readCookie(name) {
 }
 
 function on_off(div) {
-  var divbox = document.getElementById(criar - flashcard);
+  var divbox = document.getElementById();
 
   if (divbox.style.visibility == "hidden") {
     divbox.style.visibility = "visible";
   } else {
     divbox.style.visibility = "hidden";
-    c08921b2c0d568e2c7a6a1062d1e878c349fc4;
   }
 }
 

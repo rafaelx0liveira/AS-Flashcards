@@ -20,7 +20,7 @@
   <script> document.documentElement.classList.add('js');</script>
 </head>
 
-<body id="login">
+<body onload="checkTenFlashcards()" id="login">
   <header class="header-bg">
     <div class="header container">
       <a href="./">
@@ -45,30 +45,31 @@
             <li><button class="botao-compartilhar fadeInLeft" data-anime="600" href="">Compartilhar</a></li>
             <li><button class="botao-sortear fadeInLeft" data-anime="600" href="" onclick="pickFlashcard()">Sortear</a></li>
             <li><a class="botao-criar fadeInLeft" data-anime="600" href="./creat-flashcard.html">Criar</a></li>
+            <li><button class="botao-mostrar-acertos">Acertos: </button><h2 id="numero-acertos"></h2></li>
           </ul>
         </nav>
       </div>
       <div class="card-opcoes">
         <div class="card" onclick="on_off()">
-          <div class="card__inner">
+          <div id="card__inner__id" class="card__inner">
             <div class="card__face card__face--front">
-              <h2>O que é uma arquitetura?</h2>
+              <h2 id="flashcard-front"></h2>
             </div>
             <div class="card__face card__face--back">
               <div class="card__content">
                 <div class="card__header">
                 </div>
                 <div class="card__body">
-                  <h3>O que é uma arquitetura?</h3>
-                  <p>Conjunto de estruturas para <strong>raciocínio</strong> a respeito de um <strong>sistema</strong> e de suas <strong>propriedades.</strong></p>
+                  <h3 id="flashcard-front-2"></h3>
+                  <p id="flashcard-back"></p>
                 </div>
               </div>
             </div>
           </div>
         </div>
         <div class="acerto-erro hide" id="botao-resposta">
-          <button type="button" class="botao-flashcard-acerto fadeInLeft" id="acertou" data-anime="600" value=true onclick="waitTrueOrFalseAnswer(this.value)">Acertou</a>
-          <button type="button" class="botao-flashcard-erro fadeInLeft" id="errou" data-anime="600" value=false onclick="waitTrueOrFalseAnswer(this.value)">Errou</a>
+          <button type="button" class="botao-flashcard-acerto fadeInLeft" id="acertou" data-anime="600" value=true onclick="playFlashcard(this.value)">Acertou</a>
+          <button type="button" class="botao-flashcard-erro fadeInLeft" id="errou" data-anime="600" value=false onclick="playFlashcard(this.value)">Errou</a>
         </div>
       </div>
     </section>

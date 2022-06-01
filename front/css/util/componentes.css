@@ -20,7 +20,8 @@
 .botao-compartilhar,
 .botao-sortear,
 .botao-criar,
-.botao-flashcard-erro {
+.botao-flashcard-erro,
+.botao-mostrar-acertos {
   display: inline-block;
   padding: 16px 32px;
   background: linear-gradient(#ffbf00, #f2a60c);
